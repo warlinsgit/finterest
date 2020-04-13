@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('partials/head') %>
+<body>
+
+    <%- include("partials/navigation")%>
+
+  <div class="container p-4">
+      <div class="row">
+          <div class="card-columns">
+            <% images.forEach(function(image) {%>
+
+              
+                    <div class="card animated fadeInDown">
+                        <a href="/image/<%= image._id %>">
+                        <img src="<%= image.path %>" class="card-img-top align-self-start" alt="">
+                    </a>
+                        <div class="card-body">
+
+                            <h5 class="card-title"><%= image.title%></h5>
+
+                            <p class="card-text"><%= image.description%></p>
+
+                                <p class="card-text text-small"><small> <%= format(image.created_at) %></small></p>
+
+                        </div>
+                    </div>
+              
+                <%})%>
+          </div>
+      </div>
+  </div>
+    
+</body>
+</html>
